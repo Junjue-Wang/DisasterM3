@@ -35,6 +35,7 @@ DisasterM3 includes 26,988 bi-temporal satellite images and 123k instruction pai
 
 
 ## News
+- 2025/10/23, We released the DisasterM3 [instruct set](https://forms.gle/APQpmyuThh28HsJdA).
 - 2025/10/17, We released the DisasterM3 [benchmark set](https://forms.gle/APQpmyuThh28HsJdA).
 - 2025/09/22, We are preparing the dataset and code.
 - 2025/09/22, Our paper got accepted by NeurIPS 2025.
