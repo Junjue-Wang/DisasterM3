@@ -87,4 +87,12 @@ All images and their associated annotations in DisasterM3 can be used for academ
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Junjue-Wang/DisasterM3&type=Date)](https://www.star-history.com/#Junjue-Wang/DisasterM3&Date)
+## Star History
+
+<a href="https://www.star-history.com/?type=date&repos=Junjue-Wang%2FDisasterM3">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Junjue-Wang/DisasterM3&type=date&theme=dark&legend=top-left&sealed_token=kIlOTP2OkC-bjjh4jhbAk-SiUIFqLoFhCpoQ5aorN0Fr-f71mF0zbOvmO4PbnuBA0B6BfLq8M3jjeOc0SkQR8QD9bnAdeGm5q7nP8CQ2WFfPaeBwuGKVse8-c_lwA5ZvWwfCacD28VGoINvlhhuNG-ccLGTAoV9mFZIzVkYbdixcsv0FTvqUwqUIbQVL" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Junjue-Wang/DisasterM3&type=date&legend=top-left&sealed_token=kIlOTP2OkC-bjjh4jhbAk-SiUIFqLoFhCpoQ5aorN0Fr-f71mF0zbOvmO4PbnuBA0B6BfLq8M3jjeOc0SkQR8QD9bnAdeGm5q7nP8CQ2WFfPaeBwuGKVse8-c_lwA5ZvWwfCacD28VGoINvlhhuNG-ccLGTAoV9mFZIzVkYbdixcsv0FTvqUwqUIbQVL" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Junjue-Wang/DisasterM3&type=date&legend=top-left&sealed_token=kIlOTP2OkC-bjjh4jhbAk-SiUIFqLoFhCpoQ5aorN0Fr-f71mF0zbOvmO4PbnuBA0B6BfLq8M3jjeOc0SkQR8QD9bnAdeGm5q7nP8CQ2WFfPaeBwuGKVse8-c_lwA5ZvWwfCacD28VGoINvlhhuNG-ccLGTAoV9mFZIzVkYbdixcsv0FTvqUwqUIbQVL" />
+ </picture>
+</a>
