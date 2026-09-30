@@ -35,6 +35,7 @@ DisasterM3 includes 26,988 bi-temporal satellite images and 123k instruction pai
 
 
 ## News
+- 2026/09/30, 🔥🔥The second version of our disaster benchmark ([DORA](https://github.com/Junjue-Wang/DORA)) got accepted by NeurIPS 2025 as an Oral paper!🔥🔥
 - 2025/10/23, We released the DisasterM3 [instruct set](https://forms.gle/APQpmyuThh28HsJdA).
 - 2025/10/17, We released the DisasterM3 [benchmark set](https://forms.gle/APQpmyuThh28HsJdA).
 - 2025/09/22, We are preparing the dataset and code.
@@ -58,13 +59,23 @@ python disaster_m3/pyscripts/run_vllm.py --model_id OpenGVLab/InternVL3-78B --su
 ## Citation
 If you use DisasterM3 in your research, please cite our following papers.
 ```text
-  @article{wang2025disasterm3,
+@inproceedings{wang2026dora,
+  title={Can LLM Agents Respond to Disasters? Benchmarking Heterogeneous Geospatial Reasoning in Emergency Operations},
+  author={Wang, Junjue and Xuan, Weihao and Qi, Heli and Dai, Pengyu and Liu, Kunyi and Chen, Hongruixuan and Zheng, Zhuo and Xia, Junshi and Ermon, Stefano and Yokoya, Naoto},
+  booktitle={Proceedings of the Neural Information Processing Systems},
+  year={2026}
+}
+
+@inproceedings{wang2025disasterm3,
   title={DisasterM3: A Remote Sensing Vision-Language Dataset for Disaster Damage Assessment and Response},
   author={Wang, Junjue and Xuan, Weihao and Qi, Heli and Liu, Zhihao and Liu, Kunyi and Wu, Yuhan and Chen, Hongruixuan and Song, Jian and Xia, Junshi and Zheng, Zhuo and Yokoya, Naoto},
   booktitle={Proceedings of the Neural Information Processing Systems},
   year={2025}
 }
 ```
+
+
+
 
 ## Acknowledgments
 This dataset builds upon the following excellent open datasets:
