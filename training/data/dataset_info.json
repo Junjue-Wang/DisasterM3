@@ -1,0 +1,74 @@
+{
+  "disaster_m3": {
+    "file_name": "DisasterM3.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_bearing_body": {
+    "file_name": "bench/bearing_body.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_building_damage_counting": {
+    "file_name": "bench/building_damage_counting.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_disaster_type": {
+    "file_name": "bench/disaster_type.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_road_damage_counting": {
+    "file_name": "bench/road_damage_counting.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_landuse": {
+    "file_name": "bench/landuse.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_relational_reasoning_qa": {
+    "file_name": "bench/relational_reasoning_qa.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_caption": {
+    "file_name": "bench/caption.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  },
+  "disaster_m3_bench_recovery": {
+    "file_name": "bench/recovery.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images"
+    }
+  }
+}

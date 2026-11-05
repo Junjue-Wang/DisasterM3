@@ -1,0 +1,48 @@
+### Paper setting (DisasterM3, Appendix B.3). Run from the training/ folder.
+
+### model
+model_name_or_path: OpenGVLab/InternVL3-8B-hf
+image_max_pixels: 589824  # 768 * 768, LLaMA-Factory's default; the -hf processor then resizes each image to one 448x448 tile (crop_to_patches: false)
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 64
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target: all  # vision tower and projector stay frozen by default, so LoRA only covers the LLM
+deepspeed: configs/ds_z2_config.json
+
+### dataset
+dataset: disaster_m3
+dataset_dir: data
+template: intern_vl
+cutoff_len: 8192
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/internvl3_8b_disaster_m3/lora/sft
+logging_steps: 1
+save_steps: 100
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### train
+per_device_train_batch_size: 64
+gradient_accumulation_steps: 1  # 64 x 1 x 4 GPUs = global batch 256
+learning_rate: 2.0e-4
+weight_decay: 0.0
+adam_beta1: 0.9
+adam_beta2: 0.95
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+ddp_timeout: 180000000
+flash_attn: fa2
