@@ -231,12 +231,21 @@ class QwenVL(ModelConfig):
             return prompt_text
 
 
+# System prompt of LLaMA-Factory's intern_vl template. The -hf chat template has none.
+INTERNVL_SYSTEM_PROMPT = "你是书生·万象，英文名是InternVL，是由上海人工智能实验室、清华大学及多家合作单位联合开发的多模态大语言模型。"
+
+
 class InternVL(ModelConfig):
 
     def __init__(self, model_id: str, max_model_len: int = None, max_tokens: int = None, max_num_frames: int = 32):
         self.tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+        # Only HF-format checkpoints (InternVLForConditionalGeneration) define this token.
+        self.hf_image_token = getattr(self.tokenizer, "context_image_token", None)
         self.default_engine_args["model"] = model_id
         self.default_engine_args["trust_remote_code"] = True
+        if self.hf_image_token is not None:
+            # Training uses one 448x448 tile per image; InternVLProcessor defaults to crop_to_patches=True.
+            self.default_engine_args["mm_processor_kwargs"] = {"crop_to_patches": False}
         if max_tokens is not None:
             self.default_engine_args["override_generation_config"] = {"max_tokens": max_tokens}
 
@@ -302,7 +311,7 @@ class InternVL(ModelConfig):
                         if content_dict["type"] == "text":
                             content_str += content_dict["text"]
                         elif content_dict["type"] == "image":
-                            content_str += "<image>\n"
+                            content_str += (self.hf_image_token or "<image>") + "\n"
                         else:
                             raise ValueError("Unknown content type: {}".format(content_dict["type"]))
 
@@ -312,8 +321,13 @@ class InternVL(ModelConfig):
                 else:
                     raise ValueError("Unknown content type: {}".format(msg_dict["content"]))
 
+                # Training has no extra newline after an image when the next text starts with a blank line.
+                if self.hf_image_token is not None:
+                    content_str = content_str.replace(self.hf_image_token + "\n\n\n", self.hf_image_token + "\n\n")
                 msg_dict["content"] = content_str
 
+            if self.hf_image_token is not None:
+                messages = [{"role": "system", "content": INTERNVL_SYSTEM_PROMPT}] + messages
             prompt = self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
             return prompt
 

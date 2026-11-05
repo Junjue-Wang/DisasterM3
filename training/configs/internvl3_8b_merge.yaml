@@ -1,0 +1,14 @@
+### Merge the LoRA adapter into the base model. Run from the training/ folder.
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: OpenGVLab/InternVL3-8B-hf
+adapter_name_or_path: saves/internvl3_8b_disaster_m3/lora/sft
+template: intern_vl
+trust_remote_code: true
+
+### export
+export_dir: output/InternVL3-8B-hf-DisasterM3-merged  # official run_vllm.py needs "intern", "vl" and "-8b" in the path
+export_size: 5
+export_device: cpu  # choices: [cpu, auto]
+export_legacy_format: false

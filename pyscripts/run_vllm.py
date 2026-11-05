@@ -197,6 +197,7 @@ if __name__ == '__main__':
     parser.add_argument('--tensor_parallel_size', type=int, default=None)
     parser.add_argument('--overwrite', action='store_true')
     parser.add_argument('--batch_size', type=int, default=8)
+    parser.add_argument('--temperature', type=float, default=None)
     args = parser.parse_args()
 
     reformat_model_id = "/".join(args.model_id.strip("/").split("/")[-2:]).replace('/', '--')
@@ -249,6 +250,8 @@ if __name__ == '__main__':
                 if hasattr(sampling_params, key):
                     setattr(sampling_params, key, engine_args["override_generation_config"][key])
 
+        if args.temperature is not None:
+            sampling_params.temperature = args.temperature
         sampling_params.temperature = max(sampling_params.temperature, 0.01)
         print(f"Sampling params: {sampling_params}")
 

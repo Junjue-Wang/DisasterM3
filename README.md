@@ -35,6 +35,7 @@ DisasterM3 includes 26,988 bi-temporal satellite images and 123k instruction pai
 
 
 ## News
+- 2026/11/05, We released the official training code.
 - 2026/09/30, 🔥🔥The second version of our disaster benchmark ([DORA](https://github.com/Junjue-Wang/DORA)) got accepted by NeurIPS 2025 as an Oral paper!🔥🔥
 - 2025/10/23, We released the DisasterM3 [instruct set](https://forms.gle/APQpmyuThh28HsJdA).
 - 2025/10/17, We released the DisasterM3 [benchmark set](https://forms.gle/APQpmyuThh28HsJdA).
@@ -45,6 +46,19 @@ DisasterM3 includes 26,988 bi-temporal satellite images and 123k instruction pai
 ## Benchmark
 
 Please run this code for benchmarking the DisasterM3 dataset.
+
+First prepare the data. Download the benchmark set from [Hugging Face](https://huggingface.co/datasets/Kingdrone-Junjue/DisasterM3) or the [form](https://forms.gle/APQpmyuThh28HsJdA), then write one file per subset to `data/` next to the repository folder:
+```
+git clone https://github.com/Junjue-Wang/DisasterM3.git disaster_m3
+python disaster_m3/pyscripts/split_benchmark.py --bench_root /path/to/DisasterM3_Bench
+```
+`--bench_root` is the folder that holds `benchmark_release.json` and `test_images/`.
+
+`PYTHONPATH` must point to the repository folder:
+```
+export PYTHONPATH=$PWD/disaster_m3
+```
+
 Two examples:
 Qwen2.5 VL:
 ```
@@ -52,8 +66,13 @@ python disaster_m3/pyscripts/run_vllm.py --model_id Qwen/Qwen2.5-VL-7B-Instruct 
 ```
 InternVL3:
 ```
-python disaster_m3/pyscripts/run_vllm.py --model_id OpenGVLab/InternVL3-78B --subset report
+python disaster_m3/pyscripts/run_vllm.py --model_id OpenGVLab/InternVL3-78B --subset recovery
 ```
+
+
+## Training
+
+The official training code is in [training/](training/README.md). It covers LoRA fine-tuning of Qwen2.5-VL-7B and InternVL3-8B with LLaMA-Factory, merging the weights, and running the merged models on the benchmark.
 
 
 ## Citation
